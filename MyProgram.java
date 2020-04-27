@@ -15,7 +15,7 @@ public class MyProgram extends ConsoleProgram
         
         boolean playerTurn = false;
         boolean playerChoose = true;
-        boolean cardFail = true;
+        boolean cardSuccess = true;
         
         String turn = readLine("Who's turn is first? ('Player' or 'Bot') ");
         
@@ -88,24 +88,24 @@ public class MyProgram extends ConsoleProgram
                     {
                         if(play("Wild"))
                         {
-                            while(cardFail)
+                            while(cardSuccess)
                             {
                                 String newColor = readLine("What would you like the new color to be? ");
                                 System.out.println("");
                                 if(newColor.equals("Blue") || newColor.equals("Green") || newColor.equals("Yellow") || newColor.equals("Red"))
                                 {
                                     currentCard = newColor;
-                                    cardFail = false;
+                                    cardSuccess = false;
                                 }   
                                 else
                                 {
                                     System.out.println("Sorry! You have to input a color name.\n");
-                                    cardFail = true;
+                                    cardSuccess = true;
                                 }
                             }
                             sleep(1000);
                             System.out.println("Succesefully played 'Wild'. It is now the bot's turn.\n");
-                            cardFail = true;
+                            cardSuccess = true;
                             playerTurn = false;
                         }
                     }
@@ -116,23 +116,24 @@ public class MyProgram extends ConsoleProgram
                             botDraw(4);
                             System.out.println("Added 4 cards to bots hand.\n");
                             
-                            while(cardFail)
+                            while(cardSuccess)
                             {
                                 String newColor = readLine("What would you like the new color to be? ");
                                 System.out.println("");
                                 if(newColor.equals("Blue") || newColor.equals("Green") || newColor.equals("Yellow") || newColor.equals("Red"))
                                 {
                                     currentCard = newColor;
-                                    cardFail = false;
+                                    cardSuccess = false;
                                 }   
                                 else
                                 {
                                     System.out.println("Sorry! You have to input a color name.\n");
-                                    cardFail = true;
+                                    cardSuccess = true;
                                 }
                             }
                             sleep(1000);
                             System.out.println("Succesefully played 'Plus 4'. It is now the bot's turn.\n");
+                            cardSuccess = true;
                             playerTurn = false;
                         }
                     }
