@@ -11,7 +11,6 @@ public class MyProgram extends ConsoleProgram
         startHand(7);
         System.out.println("Type 'Controls' to see available commands.\nType 'QUIT' to exit program.\nNOTE: Controls can be any case but card\nnames have to have a capital first letter.\n");
         String card = "";
-        String botCard = "";
         
         boolean playerTurn = false;
         boolean playerChoose = true;
