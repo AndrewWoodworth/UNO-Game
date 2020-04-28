@@ -1,3 +1,4 @@
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 public class ConsoleProgram{
@@ -15,8 +16,8 @@ public class ConsoleProgram{
         String mainClassName = args[0];
 
         try{
-            Class mainClass = Class.forName(mainClassName);
-            Object obj = mainClass.newInstance();
+            Class<?> mainClass = Class.forName(mainClassName);
+            Object obj = mainClass.getDeclaredConstructor().newInstance();
             ConsoleProgram program = (ConsoleProgram)obj;
             program.run();
         } catch (IllegalAccessException ex) {
@@ -25,6 +26,10 @@ public class ConsoleProgram{
             System.out.println("Error in program. Make sure you extend ConsoleProgram");
         } catch (ClassNotFoundException ex) {
             System.out.println("Error in program. Make sure you extend ConsoleProgram");
+        } catch (InvocationTargetException ex) {
+            
+        } catch (NoSuchMethodException ex) {
+            
         }
     }
 
